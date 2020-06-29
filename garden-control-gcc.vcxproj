@@ -74,7 +74,8 @@
     <NMakeOutput>garden-control-gcc.exe</NMakeOutput>
     <NMakeCleanCommandLine>make clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>make rebuild</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <NMakePreprocessorDefinitions>USE_HAL_DRIVER;STM32L475xx;USB_OTG_FS;QUADSPI;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>src;src/board/Drivers/CMSIS/Device/ST/STM32L4xx/Include/;src/board/Drivers/CMSIS/Include/;src/board/Drivers/STM32L4xx_HAL_Driver/Inc/;src/board/Inc/;src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/;src/board/Middlewares/Third_Party/FreeRTOS/Source/include/;src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/;src/board/Middlewares/Third_Party/FatFs/src/;src/board/;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <NMakeBuildCommandLine>make all</NMakeBuildCommandLine>
