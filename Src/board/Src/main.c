@@ -78,7 +78,7 @@ void StartDefaultTask(void const * argument);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-
+extern void application_entry(void);
 /* USER CODE END 0 */
 
 /**
@@ -698,6 +698,7 @@ static void MX_GPIO_Init(void)
 void StartDefaultTask(void const * argument)
 {
   /* USER CODE BEGIN 5 */
+  application_entry();
   /* Infinite loop */
   for(;;)
   {
