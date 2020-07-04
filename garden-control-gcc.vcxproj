@@ -94,6 +94,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\board\api\board_api.hpp" />
     <ClInclude Include="src\board\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l475xx.h" />
     <ClInclude Include="src\board\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l4xx.h" />
     <ClInclude Include="src\board\Drivers\CMSIS\Device\ST\STM32L4xx\Include\system_stm32l4xx.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="src\board\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\portmacro.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\board\api\board_api.cpp" />
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c" />
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_cortex.c" />
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal_dfsdm.c" />

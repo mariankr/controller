@@ -309,6 +309,9 @@
     <ClInclude Include="src\board\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\portmacro.h">
       <Filter>board\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F</Filter>
     </ClInclude>
+    <ClInclude Include="src\board\api\board_api.hpp">
+      <Filter>board\api</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.c">
@@ -436,6 +439,9 @@
     </ClCompile>
     <ClCompile Include="src\board\Src\freertos.c">
       <Filter>board\Src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\board\api\board_api.cpp">
+      <Filter>board\api</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

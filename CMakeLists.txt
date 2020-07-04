@@ -31,6 +31,11 @@ set(HAL_INCLUDE_DIR
     "${CMAKE_SOURCE_DIR}/src/board/Drivers/${STM32_FAMILY}xx_HAL_Driver/Inc/Legacy"
 )
 
+### API
+set(API_INCLUDE_DIR 
+    "${CMAKE_SOURCE_DIR}/src/board/api" 
+)
+
 ### FreeRTOS
 set(FREERTOS_INCLUDE_DIR 
     "${CMAKE_SOURCE_DIR}/src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F" 
@@ -58,6 +63,7 @@ target_include_directories(${TARGET} PUBLIC
     ${FREERTOS_INCLUDE_DIR} 
     ${CMSIS_INCLUDE_DIR}
     "${CMAKE_SOURCE_DIR}/src/board/Inc"
+    ${API_INCLUDE_DIR}
 )
 target_compile_definitions(${TARGET} PUBLIC 
     "USE_HAL_DRIVER" 
@@ -80,3 +86,4 @@ add_custom_target(${TARGET_BASE_NAME}.bin
 add_custom_command(TARGET ${TARGET} POST_BUILD 
     COMMAND ${CMAKE_SIZE_UTIL} ${TARGET}
 )
+
