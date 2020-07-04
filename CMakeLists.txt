@@ -31,6 +31,14 @@ set(HAL_INCLUDE_DIR
     "${CMAKE_SOURCE_DIR}/src/board/Drivers/${STM32_FAMILY}xx_HAL_Driver/Inc/Legacy"
 )
 
+### FreeRTOS
+set(FREERTOS_INCLUDE_DIR 
+    "${CMAKE_SOURCE_DIR}/src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F" 
+    "${CMAKE_SOURCE_DIR}/src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS" 
+    "${CMAKE_SOURCE_DIR}/src/board/Middlewares/Third_Party/FreeRTOS/Source/include" 
+)
+
+
 
 ## enabling c++
 set(LD_FLAGS "--specs=nosys.specs -Wl,-Map=${CMAKE_CURRENT_BINARY_DIR}/${PROJECT_NAME}.map")
@@ -47,8 +55,9 @@ add_subdirectory(src/board)
 
 target_include_directories(${TARGET} PUBLIC 
     ${HAL_INCLUDE_DIR} 
+    ${FREERTOS_INCLUDE_DIR} 
     ${CMSIS_INCLUDE_DIR}
-    "${CMAKE_SOURCE_DIR}/Inc"
+    "${CMAKE_SOURCE_DIR}/src/board/Inc"
 )
 target_compile_definitions(${TARGET} PUBLIC 
     "USE_HAL_DRIVER" 
