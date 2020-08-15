@@ -79,6 +79,9 @@
     <Filter Include="board\api">
       <UniqueIdentifier>{29b09b23-3140-4405-894c-e89001b162b9}</UniqueIdentifier>
     </Filter>
+    <Filter Include="board\apiImpl">
+      <UniqueIdentifier>{ec91953b-b801-4929-8c2c-94e6eae6ada5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\board\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l475xx.h">
@@ -312,6 +315,9 @@
     <ClInclude Include="src\board\api\board_api.hpp">
       <Filter>board\api</Filter>
     </ClInclude>
+    <ClInclude Include="src\board\apiImpl\serial.hpp">
+      <Filter>board\apiImpl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.c">
@@ -442,6 +448,9 @@
     </ClCompile>
     <ClCompile Include="src\board\api\board_api.cpp">
       <Filter>board\api</Filter>
+    </ClCompile>
+    <ClCompile Include="src\board\apiImpl\serial.cpp">
+      <Filter>board\apiImpl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
