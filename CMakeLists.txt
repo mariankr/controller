@@ -31,8 +31,13 @@ set(HAL_INCLUDE_DIR
     "${CMAKE_SOURCE_DIR}/src/board/Drivers/${STM32_FAMILY}xx_HAL_Driver/Inc/Legacy"
 )
 
-### API
-set(API_INCLUDE_DIR 
+### BOARD
+set(BOARD_INCLUDE_DIR 
+    "${CMAKE_SOURCE_DIR}/src/board" 
+)
+
+### BOARD API
+set(BOARD_API_INCLUDE_DIR 
     "${CMAKE_SOURCE_DIR}/src/board/api" 
 )
 
@@ -63,7 +68,8 @@ target_include_directories(${TARGET} PUBLIC
     ${FREERTOS_INCLUDE_DIR} 
     ${CMSIS_INCLUDE_DIR}
     "${CMAKE_SOURCE_DIR}/src/board/Inc"
-    ${API_INCLUDE_DIR}
+    ${BOARD_INCLUDE_DIR}
+    ${BOARD_API_INCLUDE_DIR}
 )
 target_compile_definitions(${TARGET} PUBLIC 
     "USE_HAL_DRIVER" 

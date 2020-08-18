@@ -1,7 +1,9 @@
-#include "board_api.hpp"
+#include "api/board_api.hpp"
+#include "utils/buffer.hpp"
 
 namespace board_api::comm
 {
+  using SerialBuffer = board::utils::CircularBuffer<uint8_t, 1230>;
 
   Serial* Serial::get(unsigned serial_index)
   {

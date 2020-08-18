@@ -75,7 +75,7 @@
     <NMakeCleanCommandLine>cd build &amp;&amp; ninja clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>cd build &amp;&amp; ninja clean &amp;&amp; ninja</NMakeReBuildCommandLine>
     <NMakePreprocessorDefinitions>_VCRT_COMPILER_PREPROCESSOR=1;USE_HAL_DRIVER;STM32L475xx;USB_OTG_FS;QUADSPI;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <IncludePath>src;src/board/api;src/board/Drivers/CMSIS/Device/ST/STM32L4xx/Include/;src/board/Drivers/CMSIS/Include/;src/board/Drivers/STM32L4xx_HAL_Driver/Inc/;src/board/Inc/;src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/;src/board/Middlewares/Third_Party/FreeRTOS/Source/include/;src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/;src/board/Middlewares/Third_Party/FatFs/src/;src/board/;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
+    <IncludePath>src;src/board;src/board/Drivers/CMSIS/Device/ST/STM32L4xx/Include/;src/board/Drivers/CMSIS/Include/;src/board/Drivers/STM32L4xx_HAL_Driver/Inc/;src/board/Inc/;src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/;src/board/Middlewares/Third_Party/FreeRTOS/Source/include/;src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/;src/board/Middlewares/Third_Party/FatFs/src/;src/board/;$(VC_IncludePath);$(WindowsSDK_IncludePath);</IncludePath>
     <AdditionalOptions>/std:c++17</AdditionalOptions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -173,6 +173,7 @@
     <ClInclude Include="src\board\Middlewares\Third_Party\FreeRTOS\Source\include\task.h" />
     <ClInclude Include="src\board\Middlewares\Third_Party\FreeRTOS\Source\include\timers.h" />
     <ClInclude Include="src\board\Middlewares\Third_Party\FreeRTOS\Source\portable\GCC\ARM_CM4F\portmacro.h" />
+    <ClInclude Include="src\board\utils\buffer.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\board\apiImpl\serial.cpp" />
@@ -219,6 +220,7 @@
     <ClCompile Include="src\board\Src\stm32l4xx_hal_timebase_tim.c" />
     <ClCompile Include="src\board\Src\stm32l4xx_it.c" />
     <ClCompile Include="src\board\Src\system_stm32l4xx.c" />
+    <ClCompile Include="src\board\utils\buffer.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
