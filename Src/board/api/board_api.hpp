@@ -16,7 +16,7 @@ namespace board_api
   public:
     Led(unsigned number) : number_(number)
     {
-      
+
     }
     void on();
     void off();
@@ -49,10 +49,10 @@ namespace board_api
       };
 
       using Contrast = uint8_t;
-      
+
       static void clear();
       static void textOut(uint8_t x, uint8_t y, const char* text);
-      
+
       struct CursorPosition
       {
         uint8_t x;
@@ -116,6 +116,10 @@ namespace board_api
       Status initialize(Settings settings);
       Status write(const void* buf, uint32_t& len);
       Status read(void* buf, uint32_t& len);
+    public:
+      class Impl;
+    private:
+      Impl* pImpl_;
     };
   }
 }
