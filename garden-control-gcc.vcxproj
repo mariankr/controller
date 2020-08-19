@@ -95,6 +95,7 @@
   <ItemDefinitionGroup>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\board\apiImpl\boardMain.hpp" />
     <ClInclude Include="src\board\apiImpl\serial.hpp" />
     <ClInclude Include="src\board\api\board_api.hpp" />
     <ClInclude Include="src\board\Drivers\CMSIS\Device\ST\STM32L4xx\Include\stm32l475xx.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="src\board\utils\objectBuffer.hpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\board\apiImpl\boardMain.cpp" />
     <ClCompile Include="src\board\apiImpl\serial.cpp" />
     <ClCompile Include="src\board\api\board_api.cpp" />
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_hal.c" />

@@ -1,7 +1,5 @@
 #include "board_api.hpp"
 
-extern "C" void application_entry(void);
-
 void application_entry(void)
 {
   board_api::Led led(0);

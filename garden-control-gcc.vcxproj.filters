@@ -327,6 +327,9 @@
     <ClInclude Include="src\board\utils\objectBuffer.hpp">
       <Filter>board\utils</Filter>
     </ClInclude>
+    <ClInclude Include="src\board\apiImpl\boardMain.hpp">
+      <Filter>board\apiImpl</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\board\Drivers\STM32L4xx_HAL_Driver\Src\stm32l4xx_ll_usb.c">
@@ -463,6 +466,9 @@
     </ClCompile>
     <ClCompile Include="src\board\utils\buffer.cpp">
       <Filter>board\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="src\board\apiImpl\boardMain.cpp">
+      <Filter>board\apiImpl</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
