@@ -15,6 +15,8 @@ set(STM32_DEVICE "STM32L475xx")
 string(SUBSTRING ${STM32_DEVICE} 0 7 STM32_FAMILY) # get device family, eg: STM32L4
 string(TOLOWER ${STM32_DEVICE} STM32_DEVICE_LOWER)
 
+add_definitions(-DUSE_FULL_LL_DRIVER -DUSE_HAL_DRIVER)
+
 ### files
 set(LINKER_SCRIPT "${CMAKE_SOURCE_DIR}/src/board/STM32L475VGTx_FLASH.ld")    # linker scipt
 #set(CORTEXM4_MATH "${CMAKE_SOURCE_DIR}/aux/libarm_cortexM4lf_math.a")   # cortex m4 math library
