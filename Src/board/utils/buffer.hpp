@@ -1,4 +1,4 @@
-#include <cstdint>
+#include <stdint.h>
 #include <atomic>
 #include <array>
 

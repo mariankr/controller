@@ -1,5 +1,5 @@
 #pragma once
-#include <cstdint>
+#include <stdint.h>
 
 namespace board_api
 {
@@ -78,11 +78,11 @@ namespace board_api
 
   namespace comm
   {
-    class Serial
+    class SerialPort
     {
     public:
       static constexpr unsigned SERIAL_PORT_COUNT = 1;
-      static Serial* get(unsigned serial_index);
+      static SerialPort* get(unsigned serial_index);
 
       //bool waitData(unsigned time_milliseconds);
 
@@ -113,7 +113,7 @@ namespace board_api
         StopBits stop_bits;
       };
 
-      Status initialize(Settings settings);
+      void initialize(Settings settings);
       Status write(const void* buf, uint32_t& len);
       Status read(void* buf, uint32_t& len);
     public:

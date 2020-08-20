@@ -4,11 +4,11 @@ void application_entry(void)
 {
   board_api::Led led(0);
 
-  auto* serial = board_api::comm::Serial::get(0);
-  const board_api::comm::Serial::Settings settings = {
-    board_api::comm::Serial::Baudrate::_115200,
-    board_api::comm::Serial::Parity::None,
-    board_api::comm::Serial::StopBits::One
+  auto* serial = board_api::comm::SerialPort::get(0);
+  const board_api::comm::SerialPort::Settings settings = {
+    board_api::comm::SerialPort::Baudrate::_115200,
+    board_api::comm::SerialPort::Parity::None,
+    board_api::comm::SerialPort::StopBits::One
   };
   serial->initialize(settings);
   while(true)

@@ -74,8 +74,8 @@
     <NMakeOutput>garden-control-gcc.exe</NMakeOutput>
     <NMakeCleanCommandLine>cd build &amp;&amp; ninja clean</NMakeCleanCommandLine>
     <NMakeReBuildCommandLine>cd build &amp;&amp; ninja clean &amp;&amp; ninja</NMakeReBuildCommandLine>
-    <NMakePreprocessorDefinitions>_VCRT_COMPILER_PREPROCESSOR=1;USE_HAL_DRIVER;STM32L475xx;USB_OTG_FS;QUADSPI;_DEBUG;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
-    <IncludePath>src;src\board;src/board/Drivers/CMSIS/Device/ST/STM32L4xx/Inc/;src/board/Drivers/CMSIS/Include/;src\board\Drivers\STM32L4xx_HAL_Driver\Inc\;src/board/Inc/;src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/;src/board/Middlewares/Third_Party/FreeRTOS/Source/include/;src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/;src/board/Middlewares/Third_Party/FatFs/src/;src/board/;$(VC_IncludePath);$(WindowsSDK_IncludePath)</IncludePath>
+    <NMakePreprocessorDefinitions>USE_FULL_LL_DRIVER;STM32L475xx;__GNUC__;USB_OTG_FS;QUADSPI;_DEBUG;_VCRT_COMPILER_PREPROCESSOR=1;$(NMakePreprocessorDefinitions)</NMakePreprocessorDefinitions>
+    <IncludePath>src/;src/board/;src/board/Drivers/CMSIS/Device/ST/STM32L4xx/Include/;src/board/Drivers/CMSIS/Include/;src/board/Drivers/STM32L4xx_HAL_Driver/Inc/;src/board/Inc/;src/board/Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/;src/board/Middlewares/Third_Party/FreeRTOS/Source/include/;src/board/Middlewares/Third_Party/FreeRTOS/Source/portable/GCC/ARM_CM4F/;$(IncludePath)</IncludePath>
     <AdditionalOptions>/std:c++17</AdditionalOptions>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
