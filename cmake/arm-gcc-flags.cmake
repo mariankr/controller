@@ -11,8 +11,8 @@ set(CMAKE_ASM_FLAGS "${MCU_FLAGS} -x assembler-with-cpp --specs=nano.specs")
 
 SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections ${MCU_FLAGS}")
 
-SET(CMAKE_C_FLAGS_DEBUG "-O0 -g -u_printf_float -u_scanf_float")
-SET(CMAKE_CXX_FLAGS_DEBUG "-O0 -g -u_printf_float -u_scanf_float")
+SET(CMAKE_C_FLAGS_DEBUG "-Og -g -u_printf_float -u_scanf_float")
+SET(CMAKE_CXX_FLAGS_DEBUG "-Og -g -u_printf_float -u_scanf_float")
 SET(CMAKE_ASM_FLAGS_DEBUG "-g")
 SET(CMAKE_EXE_LINKER_FLAGS_DEBUG "")
 
