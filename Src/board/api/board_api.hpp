@@ -8,6 +8,8 @@ namespace board_api
   enum class Status
   {
     Ok,
+    SerialTxQueueFull,
+    SerialRxQueueEmpty,
     UnknownError
   };
 
