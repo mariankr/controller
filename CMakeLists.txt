@@ -87,7 +87,10 @@ add_custom_target(${TARGET_BASE_NAME}.hex
     DEPENDS ${TARGET} 
     COMMAND ${CMAKE_OBJCOPY} -Oihex ${TARGET} ${TARGET_BASE_NAME}.hex
 )
-add_custom_target(${TARGET_BASE_NAME}.bin 
+
+set(TARGET_BIN ${TARGET_BASE_NAME}.bin)
+
+add_custom_target(${TARGET_BIN} 
     DEPENDS ${TARGET} 
     COMMAND ${CMAKE_OBJCOPY} -Obinary ${TARGET} ${TARGET_BASE_NAME}.bin
 )
@@ -95,3 +98,11 @@ add_custom_command(TARGET ${TARGET} POST_BUILD
     COMMAND ${CMAKE_SIZE_UTIL} ${TARGET}
 )
 
+set(ST-LINK "C:\\Program Files (x86)\\STMicroelectronics\\STM32 ST-LINK Utility\\ST-LINK Utility\\ST-LINK_CLI.exe")
+
+
+# "C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility\ST-LINK_CLI.exe" -c SWD SWCLK=9 -P obj\GNM01_PCBrev002_verXXX.bin 0x08000000
+add_custom_target(flash
+	COMMAND ${ST-LINK} -c SWD -P "${TARGET_BIN}" 0x08000000
+    DEPENDS ${TARGET_BIN}
+)
