@@ -101,8 +101,15 @@ add_custom_command(TARGET ${TARGET} POST_BUILD
 set(ST-LINK "C:\\Program Files (x86)\\STMicroelectronics\\STM32 ST-LINK Utility\\ST-LINK Utility\\ST-LINK_CLI.exe")
 
 
+set(PROGRAM_ADDR 0x08000000)
+
 # "C:\Program Files (x86)\STMicroelectronics\STM32 ST-LINK Utility\ST-LINK Utility\ST-LINK_CLI.exe" -c SWD SWCLK=9 -P obj\GNM01_PCBrev002_verXXX.bin 0x08000000
 add_custom_target(flash
-	COMMAND ${ST-LINK} -c SWD -P "${TARGET_BIN}" 0x08000000
+	COMMAND ${ST-LINK} -c SWD -P "${TARGET_BIN}" ${PROGRAM_ADDR}
     DEPENDS ${TARGET_BIN}
+)
+
+add_custom_target(run
+	COMMAND ${ST-LINK} -c SWD -Run 0x08000000 ${PROGRAM_ADDR}
+    DEPENDS flash
 )
