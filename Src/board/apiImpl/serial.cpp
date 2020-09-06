@@ -5,6 +5,9 @@
 #include "utils/objectBuffer.hpp"
 #include "serial.hpp"
 
+
+extern "C" void USART1_IRQHandler();
+
 namespace board_api::comm
 {
   USART_TypeDef* getUsart(unsigned serial_port)
@@ -35,6 +38,12 @@ namespace board_api::comm
     }
     void initialize(Settings settings);
     SerialPort serial_;
+    void interrupt();
+
+
+    bool bytePut(const uint8_t& byte);
+    bool byteGet(uint8_t& byte);
+
   private:
     board::utils::CircularBuffer<uint8_t, 1024> read_buffer_;
     board::utils::CircularBuffer<uint8_t, 256> write_buffer_;
@@ -150,8 +159,49 @@ namespace board_api::comm
     LL_USART_ConfigAsyncMode(usart_);
     LL_USART_Enable(usart_);
     NVIC_EnableIRQ(getIRQn(usart_index_));
-    
+
     receiveInterruptEnable();
+  }
+  void SerialPort::Impl::interrupt()
+  {
+    auto* pUart = getUsart(usart_index_);
+
+    if (LL_USART_IsActiveFlag_RXNE(pUart) && LL_USART_IsEnabledIT_RXNE(pUart))
+    {
+      /* RXNE flag will be cleared by reading of RDR register (done in call) */
+      /* Call function in charge of handling Character reception */
+      uint8_t byte;
+      byteGet(byte);
+      // TODO: in future - events
+      //if (read_buffer_.empty()) { read_event_.signal_from_ISR(); }
+      read_buffer_.put(byte);
+    }
+
+    if (LL_USART_IsEnabledIT_TXE(pUart) && LL_USART_IsActiveFlag_TXE(pUart))
+    {
+      uint8_t byte;
+      if (write_buffer_.get(byte)) // i czy jest coœ w buforze
+      {
+        bytePut(byte);
+      }
+      else {
+        transmitInterruptDisable();
+      }
+    }
+
+
+  }
+  bool SerialPort::Impl::bytePut(const uint8_t& byte)
+  {
+    auto* pUart = board_api::comm::getUsart(usart_index_);
+    LL_USART_TransmitData8(pUart, byte);
+    return true;
+  }
+  bool SerialPort::Impl::byteGet(uint8_t& byte)
+  {
+    auto* pUart = board_api::comm::getUsart(usart_index_);
+    byte = LL_USART_ReceiveData8(pUart);
+    return true;
   }
 }
 
@@ -193,4 +243,12 @@ namespace board_api::comm
     serialPortImplPtr = serialPortImplObjectBuffer.construct(0);
   }
 
+}
+
+
+//// Przerwanie od USART1
+void USART1_IRQHandler()
+{
+  // COM1
+  board_api::comm::serialPortImplPtr->interrupt();
 }

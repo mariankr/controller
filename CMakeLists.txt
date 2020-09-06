@@ -110,6 +110,6 @@ add_custom_target(flash
 )
 
 add_custom_target(run
-	COMMAND ${ST-LINK} -c SWD -Run 0x08000000 ${PROGRAM_ADDR}
+	COMMAND ${ST-LINK} -c SWD -Run ${PROGRAM_ADDR}
     DEPENDS flash
 )

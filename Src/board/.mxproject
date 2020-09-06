@@ -12,8 +12,8 @@ HeaderPath=..\Drivers\STM32L4xx_HAL_Driver\Inc;..\Drivers\STM32L4xx_HAL_Driver\I
 CDefines=USE_FULL_LL_DRIVER;USE_HAL_DRIVER;STM32L475xx;USE_FULL_LL_DRIVER;USE_HAL_DRIVER;USE_HAL_DRIVER;
 
 [PreviousGenFiles]
-HeaderPath=C:/proj/git/!github/garden-control-new/src/board/Inc
+HeaderPath=C:/proj/git/!github/garden-control/src/board/Inc
 HeaderFiles=FreeRTOSConfig.h;stm32l4xx_it.h;stm32_assert.h;stm32l4xx_hal_conf.h;main.h;
-SourcePath=C:/proj/git/!github/garden-control-new/src/board/Src
+SourcePath=C:/proj/git/!github/garden-control/src/board/Src
 SourceFiles=freertos.c;stm32l4xx_it.c;stm32l4xx_hal_msp.c;stm32l4xx_hal_timebase_tim.c;main.c;
 

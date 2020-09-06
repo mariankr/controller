@@ -15,6 +15,14 @@ namespace board::utils
     void clear() {
       read_pos_ = write_pos_ = 0;
     }
+    bool empty() const
+    {
+      return read_pos_ == write_pos_;
+    }
+    bool full() const
+    {
+      return ((write_pos_ + 1) % SIZE == read_pos_);
+    }
 
   private:
     std::atomic<uint32_t> read_pos_;
@@ -38,8 +46,8 @@ namespace board::utils
   template<class T, uint32_t SIZE>
   inline bool CircularBuffer<T, SIZE>::get(T& data)
   {
-    if (read_pos_ == write_pos_) {
-      return false; // empty
+    if (empty()) {
+      return false;
     }
     data = data_[read_pos_];
     const auto new_read_pos = (read_pos_ + 1) % SIZE;
