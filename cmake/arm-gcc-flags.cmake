@@ -9,6 +9,10 @@ set(CMAKE_C_FLAGS "${MCU_FLAGS} -fno-builtin -Wall -ffunction-sections -fdata-se
 set(CMAKE_CXX_FLAGS "${MCU_FLAGS} -fno-builtin -Wall -ffunction-sections -fdata-sections -fomit-frame-pointer -fno-unroll-loops -ffast-math -ftree-vectorize -fno-threadsafe-statics -fno-use-cxa-atexit -fstack-usage --specs=nano.specs")
 set(CMAKE_ASM_FLAGS "${MCU_FLAGS} -x assembler-with-cpp --specs=nano.specs")
 
+
+#set(CMAKE_C_COMPILE_OBJECT "${CMAKE_C_COMPILE_OBJECT} -Wa,-alh=<OBJECT>.lst")
+#set(CMAKE_CXX_COMPILE_OBJECT "${CMAKE_CXX_COMPILE_OBJECT} -Wa,-alh=<OBJECT>.lst")
+
 SET(CMAKE_EXE_LINKER_FLAGS "-Wl,--gc-sections ${MCU_FLAGS}")
 
 SET(CMAKE_C_FLAGS_DEBUG "-Og -g -u_printf_float -u_scanf_float")
